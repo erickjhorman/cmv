@@ -19,6 +19,7 @@ public class Controlador implements ActionListener {
     this.view=view;
     this.model=model;
     this.view.btnMultiplicar.addActionListener(this);
+    this.view.btnlimpiar.addActionListener(this);
    }
     
    public void iniciar(){
@@ -27,19 +28,18 @@ public class Controlador implements ActionListener {
 } 
    
 public void actionPerformed(ActionEvent e) {
-       
+     
+    if(e.getSource()==view.btnMultiplicar) {
     model.setNumerouno(Integer.parseInt(view.txtnumeroUno.getText()));
     model.setNumeroDos(Integer.parseInt(view.txtnumero2.getText()));
     model.Multiplicar();
     view.txtresultado.setText(String.valueOf(model.getResultado()));
-       
-    }
-    
-
-
-
-
-
-
+                                          } 
+    if(e.getSource()==view.btnlimpiar) {
+    view.txtnumeroUno.setText(null);
+    view.txtnumero2.setText(null);
+    view.txtresultado.setText(null);
+                                        } 
+                                           }
 
 }
